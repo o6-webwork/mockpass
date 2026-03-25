@@ -1,0 +1,16 @@
+services:
+  mockpass:
+    container_name: ems-mockpass
+    build: .
+    environment:
+      SHOW_LOGIN_PAGE: "true"
+      SINGPASS_CLIENT_PROFILE: direct
+      MOCKPASS_PORT: 5156
+    ports:
+      - "5156:5156"
+    restart: unless-stopped
+
+networks:
+  default:
+    name: expertise-management-system_default
+    external: true
